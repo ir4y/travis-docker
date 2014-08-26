@@ -1,15 +1,9 @@
 install:
   - curl -sSL https://get.docker.io/ubuntu/ | sudo sh
-  #- sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
-  #- sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
-  #- sudo apt-get update
-  #- sudo mkdir -p /var/lib/docker
-  #- echo exit 101 | sudo tee /usr/sbin/policy-rc.d
-  #- sudo chmod +x /usr/sbin/policy-rc.d
-  #- sudo apt-get install -y lxc-docker
+  - curl -sLo linux https://github.com/jpetazzo/sekexe/raw/master/uml
+  - chmod +x linux
   - sudo ln -s /usr/bin/docker /usr/bin/docker.io
   - sudo gpasswd -a travis docker
   
 script:
-  - sudo docker -d &
-  - sudo docker.io run ubuntu:14.04 ls
+  - ./linux quiet mem=2G rootfstype=hostfs rw eth0=slirp,,/usr/bin/slirp-fullbolt init=$(pwd)/run.sh WORKDIR=$(pwd) HOME=$HOME
