@@ -65,6 +65,5 @@ sleep 5
 # Use docker
 git clone https://github.com/ir4y/fabric-scripts
 cd fabric-scripts
-mkvirtualenv fabric-scripts
 pip install -r tests/deps.txt
 py.test -s
