@@ -9,8 +9,7 @@ install:
   #- sudo apt-get install -y lxc-docker
   - sudo ln -s /usr/bin/docker /usr/bin/docker.io
   - sudo gpasswd -a travis docker
-  - sudo service docker start
-  - sudo docker -d &
   
 script:
+  - sudo docker -d &
   - sudo docker.io run ubuntu:14.04 ls
