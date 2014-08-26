@@ -7,6 +7,9 @@ install:
   - sudo chmod +x /usr/sbin/policy-rc.d
   - sudo apt-get install -y lxc-docker
   - sudo ln -s /usr/bin/docker /usr/bin/docker.io
+  - whoami
+  - lsb_release -a
+  - ls -la /var/run/docker.sock
   
 script:
   - docker.io run ubuntu:14.04 ls
