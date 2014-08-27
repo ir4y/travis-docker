@@ -42,7 +42,7 @@ cgroups-mount
 
 # mount /var/lib/docker with a tmpfs
 mount -t tmpfs none /var/lib/docker
-
+
 # enable ipv4 forwarding for docker
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
@@ -66,4 +66,4 @@ sleep 5
 git clone https://github.com/ir4y/fabric-scripts
 cd fabric-scripts
 pip install -r tests/deps.txt
-py.test -s
+exec py.test -s
