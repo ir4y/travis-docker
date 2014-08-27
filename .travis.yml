@@ -1,4 +1,6 @@
 install:
+  - ssh-keygen -t rsa -f id_rsa -q -N ""
+  - sudo ssh-keygen -t rsa -f id_rsa -q -N ""
   - curl -sSL https://get.docker.io/ubuntu/ | sudo sh
   - sudo ln -s /usr/bin/docker /usr/bin/docker.io
   - sudo apt-get install -y slirp
