@@ -66,4 +66,4 @@ sleep 5
 git clone https://github.com/ir4y/fabric-scripts
 cd fabric-scripts
 pip install -r tests/deps.txt
-exec py.test -s
+py.test -s
